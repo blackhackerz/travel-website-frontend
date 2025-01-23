@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome, FaInfoCircle, FaSuitcase, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaEnvelope } from "react-icons/fa";
+import { gsap } from "gsap";
 
 const NavBar: React.FC = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,10 +15,30 @@ const NavBar: React.FC = () => {
 
 	const isActive = (path: string) => pathname === path;
 
+	useEffect(() => {
+		if (isSidebarOpen) {
+			gsap.to(".sidebar", { x: 0, duration: 0.5, ease: "power3.inOut" });
+			gsap.to(".overlay", {
+				opacity: 1,
+				duration: 0.5,
+				ease: "power3.inOut",
+				pointerEvents: "auto",
+			});
+		} else {
+			gsap.to(".sidebar", { x: "-100%", duration: 0.5, ease: "power3.inOut" });
+			gsap.to(".overlay", {
+				opacity: 0,
+				duration: 0.5,
+				ease: "power3.inOut",
+				pointerEvents: "none",
+			});
+		}
+	}, [isSidebarOpen]);
+
 	return (
 		<>
-			<nav className="bg-black bg-opacity-20 p-4 sticky top-0 z-10">
-				<div className="container mx-auto flex justify-between items-center">
+			<nav className="bg-black bg-opacity-20 p-4 fixed top-0 z-50 w-full">
+				<div className="flex justify-between items-center">
 					<div className="flex items-center space-x-4">
 						<Link
 							href="/"
@@ -68,17 +89,6 @@ const NavBar: React.FC = () => {
 						</li>
 						<li>
 							<Link
-								href="/services"
-								className={`text-xl flex items-center transition duration-500 ease-in-out transform hover:scale-105 ${
-									isActive("/services")
-										? "text-orange-400"
-										: "text-white hover:text-gray-300"
-								}`}>
-								<FaSuitcase className="mr-2" /> Services
-							</Link>
-						</li>
-						<li>
-							<Link
 								href="/contact"
 								className={`text-xl flex items-center transition duration-500 ease-in-out transform hover:scale-105 ${
 									isActive("/contact")
@@ -93,14 +103,10 @@ const NavBar: React.FC = () => {
 			</nav>
 			{/* Sidebar */}
 			<div
-				className={`fixed inset-0 bg-black bg-opacity-40 z-20 transition-opacity duration-500 ease-in-out ${
-					isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-				}`}
+				className={`fixed inset-0 bg-black bg-opacity-40 z-50 overlay pointer-events-none opacity-0`}
 				onClick={toggleSidebar}></div>
 			<div
-				className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-30 transform transition-transform duration-500 ease-in-out backdrop-blur-md p-4 ${
-					isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-				}`}>
+				className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50 sidebar backdrop-blur-md p-4 transform -translate-x-full`}>
 				<div className="flex justify-end">
 					<button
 						className="text-white focus:outline-none"
@@ -138,16 +144,6 @@ const NavBar: React.FC = () => {
 							}`}
 							onClick={toggleSidebar}>
 							<FaInfoCircle className="mr-2" /> About
-						</Link>
-					</li>
-					<li>
-						<Link
-							href="/services"
-							className={`text-2xl flex items-center ${
-								isActive("/services") ? "text-orange-400" : "text-white"
-							}`}
-							onClick={toggleSidebar}>
-							<FaSuitcase className="mr-2" /> Services
 						</Link>
 					</li>
 					<li>

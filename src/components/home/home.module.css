@@ -1,0 +1,75 @@
+.card_home {
+	--border-width: 0.1vw;
+	--radius: 2.4vw;
+
+	position: relative;
+	border-radius: var(--radius);
+	border: var(--border-width) solid transparent;
+	padding: 2.4vw;
+	gap: 1vh;
+	width: auto; /* Default width */
+}
+
+.card_home::before {
+	content: " ";
+	position: absolute;
+	inset: calc(var(--border-width) * -1);
+	z-index: -1;
+	border: inherit;
+	border-radius: inherit;
+	background-image: conic-gradient(
+		from var(--angle),
+		#381d6a 80%,
+		#ffcc80 88%,
+		#ffcc80 92%,
+		#381d6a 100%
+	);
+	background-origin: border-box;
+	-webkit-mask: linear-gradient(black, black) content-box,
+		linear-gradient(black, black);
+	mask: linear-gradient(black, black), linear-gradient(black, black);
+	-webkit-mask-clip: content-box, border-box;
+	mask-clip: content-box, border-box;
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	transition: --angle 3s linear;
+	animation-play-state: paused;
+}
+
+.card_home:hover::before {
+	--angle: 1turn;
+	animation-play-state: running;
+}
+
+@property --angle {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 0turn;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+	.card_home {
+		--border-width: 0.2vw;
+		--radius: 2vw;
+		padding: 2vw;
+	}
+}
+
+@media (max-width: 768px) {
+	.card_home {
+		--border-width: 0.3vw;
+		--radius: 1.8vw;
+		padding: 2vw;
+		width: 100%; /* Full width */
+	}
+}
+
+@media (max-width: 480px) {
+	.card_home {
+		--border-width: 0.4vw;
+		--radius: 1.2vw;
+		padding: 1.2vw;
+		width: 100%; /* Full width */
+	}
+}
