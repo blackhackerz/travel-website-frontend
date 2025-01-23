@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
 	return (
 		<div
 			className="relative flex items-center justify-center h-screen bg-cover bg-center -mt-16 overflow-hidden"
-			style={{ backgroundImage: "url('/hero-bg.png')" }}>
+			style={{ backgroundImage: "url('/hero-bg.webp')" }}>
 			<div className="absolute inset-0 bg-black bg-opacity-60"></div>
 			<div className="relative flex flex-col items-center justify-center text-center text-white px-4 pb-16">
 				<h1

@@ -17,28 +17,28 @@ interface CardProps {
 
 const cardsData: CardProps[] = [
 	{
-		src: "/image1.png",
+		src: "/image1.webp",
 		alt: "Description of image 1",
 		title: "Card 1 Title",
 		description:
 			"This is a description for card 1. It provides more details about the content of the card.",
 	},
 	{
-		src: "/image2.png",
+		src: "/image2.webp",
 		alt: "Description of image 2",
 		title: "Card 2 Title",
 		description:
 			"This is a description for card 2. It provides more details about the content of the card.",
 	},
 	{
-		src: "/image3.png",
+		src: "/image3.webp",
 		alt: "Description of image 3",
 		title: "Card 3 Title",
 		description:
 			"This is a description for card 3. It provides more details about the content of the card.",
 	},
 	{
-		src: "/image4.png",
+		src: "/image4.webp",
 		alt: "Description of image 4",
 		title: "Card 4 Title",
 		description:

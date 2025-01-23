@@ -4,12 +4,12 @@ import Image from "next/image";
 import { gsap } from "gsap";
 
 const images = [
-	"/image1.png",
-	"/image2.png",
-	"/image3.png",
-	"/image4.png",
-	"/image5.png",
-	"/image6.png",
+	"/image1.webp",
+	"/image2.webp",
+	"/image3.webp",
+	"/image4.webp",
+	"/image5.webp",
+	"/image6.webp",
 ];
 
 const Gallery: React.FC = () => {

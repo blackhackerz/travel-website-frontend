@@ -40,7 +40,7 @@ const AboutPage = () => {
 				<div className="flex justify-center w-full md:w-1/2">
 					<Image
 						className="image object-cover rounded-lg shadow-lg"
-						src="/image1.png"
+						src="/image1.webp"
 						alt="Image 1"
 						width={800}
 						height={300} // Adjusted height
@@ -98,7 +98,7 @@ const AboutPage = () => {
 				<div className="flex justify-center w-full md:w-1/2">
 					<Image
 						className="image object-cover rounded-lg shadow-lg"
-						src="/image2.png"
+						src="/image2.webp"
 						alt="Image 2"
 						width={800}
 						height={300} // Adjusted height
@@ -113,7 +113,7 @@ const AboutPage = () => {
 				<div className="flex justify-center w-full md:w-1/2">
 					<Image
 						className="image object-cover rounded-lg shadow-lg"
-						src="/image3.png"
+						src="/image3.webp"
 						alt="Image 3"
 						width={800}
 						height={300} // Adjusted height
