@@ -7,10 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const sponsors = [
-	{ name: "Sponsor 1", logo: "/logo1.png" },
-	{ name: "Sponsor 2", logo: "/logo2.png" },
-	{ name: "Sponsor 3", logo: "/logo3.png" },
-	{ name: "Sponsor 4", logo: "/logo4.png" },
+	{ name: "Sponsor 1", logo: "/logo1.webp" },
+	{ name: "Sponsor 2", logo: "/logo2.webp" },
+	{ name: "Sponsor 3", logo: "/logo3.webp" },
+	{ name: "Sponsor 4", logo: "/logo4.webp" },
 ];
 
 const Sponsors: React.FC = () => {
